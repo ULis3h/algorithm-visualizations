@@ -1,13 +1,104 @@
-# 跳表查找演示
+# 算法可视化演示集合
+
+这个仓库包含了多个算法的交互式可视化演示。每个演示都旨在帮助理解算法的工作原理和核心概念。通过动画和交互的方式，让抽象的算法变得更加直观和易懂。
+
+## 在线演示
+
+👉 [查看所有演示](https://ULis3h.github.io/algorithm-visualizations)
+
+## 已实现的算法
+
+### 1. 跳表 (Skip List)
+跳表是一种随机化的数据结构，通过建立多层索引来加快查找速度。它是一种可以代替平衡树的数据结构。
+
+**特点：**
+- 平均时间复杂度：O(log n)
+- 空间复杂度：O(n)
+- 实现简单，插入和删除操作比平衡树更简单
+- 支持快速的范围查询
+
+[查看跳表演示](./skiplist/)
+
+## 项目特点
+
+- 📊 交互式可视化
+- 🎯 直观的算法演示
+- 💻 清晰的代码实现
+- 📝 详细的文档说明
+- 🔄 动画演示过程
+- 👆 支持用户交互
+
+## 技术栈
+
+- HTML5 Canvas：绘制动画和图形
+- 原生 JavaScript：实现算法逻辑
+- CSS3：页面样式和动画效果
+
+## 本地开发
+
+1. **克隆仓库**
+   ```bash
+   git clone https://github.com/ULis3h/algorithm-visualizations.git
+   cd algorithm-visualizations
+   ```
+
+2. **运行本地服务器**
+   ```bash
+   # 使用 Python 的 HTTP 服务器
+   python3 -m http.server 8000
+   # 或使用 Node.js 的 http-server（需要先安装）
+   npx http-server
+   ```
+
+3. **访问演示页面**
+   打开浏览器访问 `http://localhost:8000`
+
+## 项目结构
+
+```
+algorithm-visualizations/
+├── README.md
+├── index.html              # 主页面
+├── .gitignore
+└── skiplist/              # 跳表算法
+    ├── index.html         # 跳表演示页面
+    ├── skiplist.js        # 跳表实现
+    └── styles.css         # 样式文件
+```
+
+## 如何贡献
+
+1. Fork 这个仓库
+2. 创建你的特性分支 (`git checkout -b feature/AmazingFeature`)
+3. 提交你的改动 (`git commit -m 'Add some AmazingFeature'`)
+4. 推送到分支 (`git push origin feature/AmazingFeature`)
+5. 开启一个 Pull Request
+
+## 待实现的算法
+
+- [ ] 排序算法（快速排序、归并排序等）
+- [ ] 图算法（DFS、BFS、最短路径等）
+- [ ] 树算法（二叉树、红黑树等）
+- [ ] 字符串算法（KMP、Trie等）
+
+## 联系方式
+
+- GitHub: [@ULis3h](https://github.com/ULis3h)
+
+## 许可证
+
+本项目采用 MIT 许可证。查看 [LICENSE](LICENSE) 文件了解更多信息。
+
+## 跳表查找演示
 
 这是一个交互式的跳表（Skip List）查找算法演示页面。通过可视化的方式展示跳表的结构和查找过程，帮助理解跳表的工作原理。
 
 ## 在线演示
 
-👉 [在线查看演示](https://ULis3h.github.io/algorithm-visualizations)
+👉 [在线查看演示](https://ULis3h.github.io/algorithm-visualizations/skiplist/)
 
 <div align="center">
-  <iframe src="index.html" width="100%" height="700" frameborder="0" style="max-width: 1000px; width: 100%; border: 2px solid #1a73e8; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);"></iframe>
+  <iframe src="skiplist/index.html" width="100%" height="700" frameborder="0" style="max-width: 1000px; width: 100%; border: 2px solid #1a73e8; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);"></iframe>
 </div>
 
 ## 什么是跳表？
