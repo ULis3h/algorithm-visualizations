@@ -3,24 +3,106 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>跳表查找演示</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>算法可视化演示集合</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #1a73e8;
+            margin-bottom: 30px;
+        }
+
+        .algorithms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px 0;
+        }
+
+        .algorithm-card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .algorithm-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .algorithm-card h2 {
+            color: #1a73e8;
+            margin-bottom: 10px;
+        }
+
+        .algorithm-card p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .algorithm-card a {
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: #1a73e8;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+        }
+
+        .algorithm-card a:hover {
+            background-color: #1557b0;
+        }
+
+        .complexity {
+            margin-top: 10px;
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        .complexity span {
+            background: #e8f0fe;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-right: 8px;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-        <h1>跳表查找演示</h1>
-        <div class="controls">
-            <input type="number" id="searchInput" placeholder="输入要查找的数字">
-            <button id="searchBtn">查找</button>
-            <button id="resetBtn">重置</button>
-        </div>
-        <div class="skiplist-container" style="min-height: 600px;">
-            <canvas id="skiplistCanvas"></canvas>
-        </div>
-        <div class="info-panel">
-            <p id="searchInfo">请输入要查找的数字</p>
+        <h1>算法可视化演示集合</h1>
+        <div class="algorithms-grid">
+            <div class="algorithm-card">
+                <h2>跳表 (Skip List)</h2>
+                <p>跳表是一种随机化的数据结构，实现了基于链表的快速搜索。通过在链表上添加多级索引来加快查找速度。</p>
+                <div class="complexity">
+                    <span>查找: O(log n)</span>
+                    <span>插入: O(log n)</span>
+                    <span>删除: O(log n)</span>
+                </div>
+                <p><a href="skiplist/">查看演示</a></p>
+            </div>
+            <!-- 这里可以添加更多算法卡片 -->
         </div>
     </div>
-    <script src="skiplist.js"></script>
 </body>
 </html>

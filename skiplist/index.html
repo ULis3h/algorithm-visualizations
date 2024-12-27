@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>跳表查找演示</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>跳表查找演示</h1>
+        <div class="controls">
+            <input type="number" id="searchInput" placeholder="输入要查找的数字">
+            <button id="searchBtn">查找</button>
+            <button id="resetBtn">重置</button>
+        </div>
+        <div class="skiplist-container" style="min-height: 600px;">
+            <canvas id="skiplistCanvas"></canvas>
+        </div>
+        <div class="info-panel">
+            <p id="searchInfo">请输入要查找的数字</p>
+        </div>
+    </div>
+    <script src="skiplist.js"></script>
+</body>
+</html>
