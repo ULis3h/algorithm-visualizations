@@ -102,49 +102,70 @@
         }
 
         .algorithm-card p {
-            color: #666;
+            color: #5f6368;
             margin-bottom: 15px;
         }
 
-        .algorithm-card .metrics {
+        .metrics {
             margin-bottom: 15px;
-            font-size: 0.9em;
-            color: #666;
         }
 
-        .algorithm-card .metric {
-            display: inline-block;
-            margin-right: 15px;
+        .metric {
+            color: #5f6368;
+            margin-bottom: 5px;
         }
 
-        .algorithm-card .metric span {
+        .metric span {
             color: #1a73e8;
             font-weight: bold;
         }
 
-        .view-demo {
-            display: inline-block;
-            padding: 8px 16px;
-            background-color: #1a73e8;
-            color: white;
-            text-decoration: none;
-            border-radius: 4px;
-            transition: background-color 0.2s;
-        }
-
-        .view-demo:hover {
-            background-color: #1557b0;
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 15px;
         }
 
         .tag {
-            display: inline-block;
-            padding: 4px 8px;
-            background-color: #e8f0fe;
+            background: #e8f0fe;
             color: #1a73e8;
+            padding: 4px 8px;
             border-radius: 4px;
-            font-size: 0.8em;
-            margin-right: 5px;
-            margin-bottom: 5px;
+            font-size: 0.9em;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+        }
+
+        .view-demo, .view-doc {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: background 0.2s;
+            flex: 1;
+            text-align: center;
+        }
+
+        .view-demo {
+            background: #1a73e8;
+            color: white;
+        }
+
+        .view-demo:hover {
+            background: #1557b0;
+        }
+
+        .view-doc {
+            background: #34a853;
+            color: white;
+        }
+
+        .view-doc:hover {
+            background: #2d8745;
         }
     </style>
 </head>
@@ -165,8 +186,10 @@
                     <span class="tag">随机化</span>
                     <span class="tag">索引</span>
                 </div>
-                <p></p>
-                <a href="skiplist/" class="view-demo">查看演示</a>
+                <div class="button-group">
+                    <a href="skiplist/" class="view-demo">查看演示</a>
+                    <a href="skiplist/README_zh.md" class="view-doc">查看文档</a>
+                </div>
             </div>
 
             <!-- 小世界网络卡片 -->
@@ -181,7 +204,10 @@
                     <span class="tag">网络科学</span>
                     <span class="tag">复杂系统</span>
                 </div>
-                <a href="small-world/index.html" class="view-demo">查看演示</a>
+                <div class="button-group">
+                    <a href="small-world/index.html" class="view-demo">查看演示</a>
+                    <a href="small-world/README_zh.md" class="view-doc">查看文档</a>
+                </div>
             </div>
 
             <!-- HNSW卡片 -->
@@ -196,8 +222,13 @@
                     <span class="tag">近邻搜索</span>
                     <span class="tag">多层级</span>
                 </div>
-                <a href="hnsw/index.html" class="view-demo">查看演示</a>
+                <div class="button-group">
+                    <a href="hnsw/index.html" class="view-demo">查看演示</a>
+                    <a href="hnsw/README_zh.md" class="view-doc">查看文档</a>
+                </div>
             </div>
+
+            <!-- B+树卡片 -->
             <div class="algorithm-card">
                 <h2>B+树 (B+ Tree)</h2>
                 <p>一种高效的多路搜索树，广泛应用于数据库索引和文件系统。</p>
@@ -210,7 +241,31 @@
                     <span class="tag">平衡树</span>
                     <span class="tag">文件系统</span>
                 </div>
-                <a href="btree/index.html" class="view-demo">查看演示</a>
+                <div class="button-group">
+                    <a href="btree/index.html" class="view-demo">查看演示</a>
+                    <a href="btree/README_zh.md" class="view-doc">查看文档</a>
+                </div>
+            </div>
+
+            <!-- SPTAG卡片 -->
+            <div class="algorithm-card">
+                <h2>SPTAG (空间分区树与图)</h2>
+                <p>高性能向量相似度搜索算法，结合空间分区树和可导航小世界图。</p>
+                <div class="metrics">
+                    <div class="metric">构建时间: <span>O(n log n)</span></div>
+                    <div class="metric">查询时间: <span>O(log n)</span></div>
+                    <div class="metric">空间复杂度: <span>O(n)</span></div>
+                </div>
+                <div class="tags">
+                    <span class="tag">向量搜索</span>
+                    <span class="tag">高维索引</span>
+                    <span class="tag">并行计算</span>
+                    <span class="tag">近似最近邻</span>
+                </div>
+                <div class="button-group">
+                    <a href="sptag/index.html" class="view-demo">查看演示</a>
+                    <a href="sptag/README_zh.md" class="view-doc">查看文档</a>
+                </div>
             </div>
         </div>
     </div>

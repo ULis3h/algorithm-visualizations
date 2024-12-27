@@ -62,6 +62,21 @@ Efficient multi-way search tree widely used in database indexing and file system
   - Insert operation demonstration
   - Search process tracking
 
+### 5. [SPTAG (Space Partition Tree And Graph)](sptag/) 🎯
+High-performance vector similarity search algorithm combining space partition trees with navigable small world graphs.
+- **Performance**:
+  - Build time: O(n log n)
+  - Query time: O(log n) average case
+  - Space complexity: O(n)
+- **Algorithm Features**:
+  - Hybrid tree-graph structure
+  - Parallel search paths
+  - Multi-threading support
+- **Visualization Elements**:
+  - Space partition visualization
+  - Graph connectivity display
+  - Search path tracking
+
 ## Technical Implementation 🛠️
 
 - **Frontend Technologies**:
