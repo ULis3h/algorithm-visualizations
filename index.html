@@ -42,6 +42,53 @@
             padding: 20px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
             transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .algorithm-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(
+                from 0deg,
+                transparent 0deg,
+                #8a2be2 72deg,
+                transparent 100deg
+            );
+            animation: rotate 1s linear infinite;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .algorithm-card::after {
+            content: '';
+            position: absolute;
+            inset: 2px;
+            background: white;
+            border-radius: 6px;
+            z-index: 1;
+        }
+
+        .algorithm-card:hover::before {
+            opacity: 1;
+        }
+
+        .algorithm-card > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
         }
 
         .algorithm-card:hover {
@@ -150,6 +197,20 @@
                     <span class="tag">多层级</span>
                 </div>
                 <a href="hnsw/index.html" class="view-demo">查看演示</a>
+            </div>
+            <div class="algorithm-card">
+                <h2>B+树 (B+ Tree)</h2>
+                <p>一种高效的多路搜索树，广泛应用于数据库索引和文件系统。</p>
+                <div class="metrics">
+                    <div class="metric">查找时间: <span>O(log n)</span></div>
+                    <div class="metric">插入时间: <span>O(log n)</span></div>
+                </div>
+                <div class="tags">
+                    <span class="tag">数据库索引</span>
+                    <span class="tag">平衡树</span>
+                    <span class="tag">文件系统</span>
+                </div>
+                <a href="btree/index.html" class="view-demo">查看演示</a>
             </div>
         </div>
     </div>

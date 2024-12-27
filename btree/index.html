@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B+ Tree Visualization</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>B+ Tree Visualization</h1>
+        <div class="controls">
+            <div class="input-group">
+                <input type="number" id="insertValue" placeholder="Enter a number">
+                <button onclick="insertKey()">Insert</button>
+            </div>
+            <div class="input-group">
+                <input type="number" id="searchValue" placeholder="Enter a number to search">
+                <button onclick="searchKey()">Search</button>
+            </div>
+        </div>
+        <div id="message" class="message"></div>
+        <div id="treeContainer" class="tree-container"></div>
+    </div>
+
+    <script src="btree.js"></script>
+    <script>
+        let tree = new BPlusTree(3); // Create B+ tree with order 3
+        
+        function showMessage(text, isError = false) {
+            const messageDiv = document.getElementById('message');
+            messageDiv.textContent = text;
+            messageDiv.className = 'message ' + (isError ? 'error' : 'success');
+            setTimeout(() => {
+                messageDiv.textContent = '';
+                messageDiv.className = 'message';
+            }, 3000);
+        }
+
+        function insertKey() {
+            const input = document.getElementById('insertValue');
+            const value = parseInt(input.value);
+            
+            if (isNaN(value)) {
+                showMessage('Please enter a valid number', true);
+                return;
+            }
+
+            tree.insert(value);
+            input.value = '';
+            showMessage(`Inserted ${value} successfully`);
+            visualizeTree();
+        }
+
+        function searchKey() {
+            const input = document.getElementById('searchValue');
+            const value = parseInt(input.value);
+            
+            if (isNaN(value)) {
+                showMessage('Please enter a valid number', true);
+                return;
+            }
+
+            const found = tree.search(value);
+            input.value = '';
+            showMessage(found ? `Found ${value} in the tree` : `${value} not found in the tree`);
+        }
+
+        function visualizeTree() {
+            const container = document.getElementById('treeContainer');
+            container.innerHTML = '';
+            
+            const treeStructure = tree.getTreeStructure();
+            const treeDiv = document.createElement('div');
+            treeDiv.className = 'tree';
+            
+            function createNodeElement(node) {
+                const nodeDiv = document.createElement('div');
+                nodeDiv.className = `node ${node.isLeaf ? 'leaf' : 'internal'}`;
+                
+                const keysDiv = document.createElement('div');
+                keysDiv.className = 'keys';
+                keysDiv.textContent = node.keys.join(', ');
+                nodeDiv.appendChild(keysDiv);
+                
+                return nodeDiv;
+            }
+            
+            function createLevelDiv(nodes, level) {
+                const levelDiv = document.createElement('div');
+                levelDiv.className = 'level';
+                
+                nodes.forEach(node => {
+                    const nodeElement = createNodeElement(node);
+                    levelDiv.appendChild(nodeElement);
+                });
+                
+                return levelDiv;
+            }
+            
+            function visualizeLevel(node, level = 0) {
+                const currentLevel = new Map();
+                const queue = [{node: node, level: level}];
+                
+                while (queue.length > 0) {
+                    const current = queue.shift();
+                    
+                    if (!currentLevel.has(current.level)) {
+                        currentLevel.set(current.level, []);
+                    }
+                    currentLevel.get(current.level).push(current.node);
+                    
+                    if (!current.node.isLeaf) {
+                        current.node.children.forEach(child => {
+                            queue.push({node: child, level: current.level + 1});
+                        });
+                    }
+                }
+                
+                return currentLevel;
+            }
+            
+            const levels = visualizeLevel(treeStructure);
+            levels.forEach((nodes, level) => {
+                const levelDiv = createLevelDiv(nodes, level);
+                treeDiv.appendChild(levelDiv);
+            });
+            
+            container.appendChild(treeDiv);
+        }
+
+        // Initial visualization
+        visualizeTree();
+    </script>
+</body>
+</html>
