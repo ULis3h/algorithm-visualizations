@@ -101,10 +101,6 @@ algorithm-visualizations/
   <iframe src="skiplist/index.html" width="100%" height="700" frameborder="0" style="max-width: 1000px; width: 100%; border: 2px solid #1a73e8; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);"></iframe>
 </div>
 
-## 什么是跳表？
-
-跳表是一种随机化的数据结构，可以实现对有序链表的快速搜索。它通过在链表的基础上添加多级索引来加快查找速度，平均时间复杂度为 O(log n)。
-
 ## 演示功能
 
 ### 基本特性

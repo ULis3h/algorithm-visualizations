@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小世界网络演示</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>小世界网络演示</h1>
+        <div class="controls">
+            <div class="control-group">
+                <label for="nodeCount">节点数量:</label>
+                <input type="number" id="nodeCount" value="20" min="10" max="50">
+            </div>
+            <div class="control-group">
+                <label for="rewireProb">重连概率:</label>
+                <input type="range" id="rewireProb" min="0" max="100" value="10" step="5">
+                <span id="rewireProbValue">0.1</span>
+            </div>
+            <div class="control-group">
+                <label for="kNeighbors">每个节点的邻居数:</label>
+                <input type="number" id="kNeighbors" value="4" min="2" max="8" step="2">
+            </div>
+            <div class="button-group">
+                <button id="generateBtn">生成网络</button>
+                <button id="calculateBtn">计算特征</button>
+            </div>
+        </div>
+        <div class="network-container">
+            <canvas id="networkCanvas"></canvas>
+        </div>
+        <div class="info-panel">
+            <div class="metric">
+                <span>平均路径长度:</span>
+                <span id="avgPathLength">-</span>
+            </div>
+            <div class="metric">
+                <span>聚类系数:</span>
+                <span id="clusteringCoeff">-</span>
+            </div>
+        </div>
+    </div>
+    <script src="small-world.js"></script>
+</body>
+</html>

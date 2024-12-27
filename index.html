@@ -13,27 +13,27 @@
 
         body {
             font-family: Arial, sans-serif;
-            background-color: #f0f2f5;
             line-height: 1.6;
+            background-color: #f0f2f5;
+            padding: 20px;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
         }
 
         h1 {
             text-align: center;
             color: #1a73e8;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
         }
 
-        .algorithms-grid {
+        .algorithm-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
-            padding: 20px 0;
+            padding: 20px;
         }
 
         .algorithm-card {
@@ -59,7 +59,23 @@
             margin-bottom: 15px;
         }
 
-        .algorithm-card a {
+        .algorithm-card .metrics {
+            margin-bottom: 15px;
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        .algorithm-card .metric {
+            display: inline-block;
+            margin-right: 15px;
+        }
+
+        .algorithm-card .metric span {
+            color: #1a73e8;
+            font-weight: bold;
+        }
+
+        .view-demo {
             display: inline-block;
             padding: 8px 16px;
             background-color: #1a73e8;
@@ -69,39 +85,59 @@
             transition: background-color 0.2s;
         }
 
-        .algorithm-card a:hover {
+        .view-demo:hover {
             background-color: #1557b0;
         }
 
-        .complexity {
-            margin-top: 10px;
-            font-size: 0.9em;
-            color: #666;
-        }
-
-        .complexity span {
-            background: #e8f0fe;
-            padding: 2px 6px;
+        .tag {
+            display: inline-block;
+            padding: 4px 8px;
+            background-color: #e8f0fe;
+            color: #1a73e8;
             border-radius: 4px;
-            margin-right: 8px;
+            font-size: 0.8em;
+            margin-right: 5px;
+            margin-bottom: 5px;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>算法可视化演示集合</h1>
-        <div class="algorithms-grid">
+        <div class="algorithm-grid">
+            <!-- 跳表卡片 -->
             <div class="algorithm-card">
                 <h2>跳表 (Skip List)</h2>
-                <p>跳表是一种随机化的数据结构，实现了基于链表的快速搜索。通过在链表上添加多级索引来加快查找速度。</p>
-                <div class="complexity">
-                    <span>查找: O(log n)</span>
-                    <span>插入: O(log n)</span>
-                    <span>删除: O(log n)</span>
+                <p>一种随机化的数据结构，通过多级索引加快查找速度。</p>
+                <div class="metrics">
+                    <div class="metric">时间复杂度: <span>O(log n)</span></div>
+                    <div class="metric">空间复杂度: <span>O(n)</span></div>
                 </div>
-                <p><a href="skiplist/">查看演示</a></p>
+                <div class="tags">
+                    <span class="tag">查找</span>
+                    <span class="tag">随机化</span>
+                    <span class="tag">索引</span>
+                </div>
+                <p></p>
+                <a href="skiplist/" class="view-demo">查看演示</a>
             </div>
-            <!-- 这里可以添加更多算法卡片 -->
+
+            <!-- 小世界网络卡片 -->
+            <div class="algorithm-card">
+                <h2>小世界网络</h2>
+                <p>展示网络中的"六度分隔"现象，以及网络的聚类性和短路径特性。</p>
+                <div class="metrics">
+                    <div class="metric">平均路径长度: <span>O(log n)</span></div>
+                    <div class="metric">高聚类性: <span>✓</span></div>
+                </div>
+                <div class="tags">
+                    <span class="tag">网络科学</span>
+                    <span class="tag">图论</span>
+                    <span class="tag">社交网络</span>
+                </div>
+                <p></p>
+                <a href="small-world/" class="view-demo">查看演示</a>
+            </div>
         </div>
     </div>
 </body>
