@@ -1,59 +1,41 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HNSW 演示</title>
+    <title>HNSW 算法演示</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
 </head>
 <body>
     <div class="container">
-        <h1>HNSW (Hierarchical Navigable Small World) 演示</h1>
+        <h1>HNSW 算法演示</h1>
         <div class="controls">
-            <div class="control-group">
-                <label for="pointCount">数据点数量:</label>
-                <input type="number" id="pointCount" value="100" min="50" max="500">
+            <div class="input-group">
+                <label for="numPoints">数据点数量:</label>
+                <input type="number" id="numPoints" value="100" min="10" max="1000">
             </div>
-            <div class="control-group">
-                <label for="maxLevel">最大层数:</label>
-                <input type="number" id="maxLevel" value="4" min="2" max="6">
+            <div class="input-group">
+                <label for="numNeighbors">邻居数量:</label>
+                <input type="number" id="numNeighbors" value="5" min="2" max="20">
             </div>
-            <div class="control-group">
-                <label for="neighborsSize">每层邻居数:</label>
-                <input type="number" id="neighborsSize" value="8" min="4" max="16">
+            <div class="input-group">
+                <label for="numLayers">层数:</label>
+                <input type="number" id="numLayers" value="4" min="2" max="6">
             </div>
-            <div class="control-group">
-                <label for="searchPoint">搜索点坐标:</label>
-                <input type="text" id="searchPointX" placeholder="X" value="0.5" style="width: 60px;">
-                <input type="text" id="searchPointY" placeholder="Y" value="0.5" style="width: 60px;">
-            </div>
-            <div class="button-group">
-                <button id="generateBtn">生成数据</button>
-                <button id="searchBtn">开始搜索</button>
-                <button id="stepBtn">单步执行</button>
-                <button id="resetBtn">重置</button>
-            </div>
+            <button id="generateBtn">生成数据</button>
+            <button id="searchBtn">搜索最近邻</button>
+            <button id="resetBtn">重置视图</button>
         </div>
-        <div class="visualization">
-            <div class="layers-container">
-                <!-- 图层将由 JavaScript 动态生成 -->
-            </div>
-        </div>
+        <div id="graph-container"></div>
         <div class="info-panel">
-            <div class="metric">
-                <span>当前层:</span>
-                <span id="currentLevel">-</span>
-            </div>
-            <div class="metric">
-                <span>访问节点数:</span>
-                <span id="visitedCount">-</span>
-            </div>
-            <div class="metric">
-                <span>搜索时间:</span>
-                <span id="searchTime">-</span>
-            </div>
+            <div>搜索步骤: <span id="searchSteps">0</span></div>
+            <div>访问节点数: <span id="visitedNodes">0</span></div>
+            <div>当前层: <span id="currentLayer">-</span></div>
         </div>
     </div>
     <script src="hnsw.js"></script>
+    <script src="visualization.js"></script>
 </body>
 </html>
