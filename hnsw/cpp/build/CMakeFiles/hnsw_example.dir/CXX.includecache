@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/ulis/Documents/Work/HNSW/cpp/example.cpp
+hnsw.hpp
+/Users/ulis/Documents/Work/HNSW/cpp/hnsw.hpp
+iostream
+-
+vector
+-
+cmath
+-
+
+/Users/ulis/Documents/Work/HNSW/cpp/hnsw.hpp
+vector
+-
+random
+-
+memory
+-
+queue
+-
+algorithm
+-
+mutex
+-
+unordered_set
+-
+
